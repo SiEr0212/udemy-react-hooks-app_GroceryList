@@ -1,22 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
+const initList = [
+  { name: "tomato", calories: 20 },
+  { name: "rice", calories: 30 },
+  { name: "candy", calories: 100 },
+];
 function App() {
+  const [list, setlist] = useState(initList);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h2>Grocery List</h2>
       </header>
     </div>
   );
