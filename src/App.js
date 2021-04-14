@@ -11,6 +11,10 @@ const initList = [
 function App() {
   const [list, setlist] = useState(initList);
 
+  const removeUnhealthyHandle = () => {
+
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +22,7 @@ function App() {
         {list.map((v, k)=> {
           return <Item key={`${k}${v.name}${v.calories}`} item={v}></Item>
         })}
+        <button onClick={removeUnhealthyHandle} className="remove-button">Remove Unhealthy</button>
       </header>
     </div>
   );
