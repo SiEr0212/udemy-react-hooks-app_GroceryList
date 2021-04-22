@@ -12,11 +12,9 @@ function App() {
   const [list, setlist] = useState(initList);
 
   const removeUnhealthyHandle = (e) => {
-    
     const filteredList = list.filter((v) => v.calories <= 50);
-    setlist(filteredList);//sets the state to the  filteredList 
+    setlist(filteredList); //sets the state to the  filteredList
   };
-
 
   return (
     <div className="App">
@@ -25,9 +23,6 @@ function App() {
         {list.map((v, k) => {
           return <Item key={`${k}${v.name}${v.calories}`} item={v}></Item>;
         })}
-        <button onClick={removeUnhealthyHandle} className="remove-button">
-          Remove Unhealthy
-        </button>
       </header>
     </div>
   );
