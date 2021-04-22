@@ -9,11 +9,16 @@ const initList = [
 ];
 function App() {
   const [list, setlist] = useState(initList);
+  const [editable, setEditable] = useState(false);
 
   function removeItemHandler(e) {
     console.dir(e.target.name);
     const filteredList = list.filter((v) => v.name !== e.target.name);
     setlist(filteredList);
+  }
+
+  function makeditableHandler() {
+    setEditable(true);
   }
 
   return (
@@ -26,6 +31,8 @@ function App() {
               key={`${k}${v.name}${v.calories}`}
               item={v}
               onClick={removeItemHandler}
+              editable={editable}
+              onDoubleClick={makeditableHandler}
             ></Item>
           );
         })}
