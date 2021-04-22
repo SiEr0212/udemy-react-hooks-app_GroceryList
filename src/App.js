@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Item from "./components/item";
 
@@ -11,17 +10,24 @@ const initList = [
 function App() {
   const [list, setlist] = useState(initList);
 
-  const removeUnhealthyHandle = (e) => {
-    const filteredList = list.filter((v) => v.calories <= 50);
-    setlist(filteredList); //sets the state to the  filteredList
-  };
+  function removeItemHandler(e) {
+    console.dir(e.target.name);
+    const filteredList = list.filter((v) => v.name !== e.target.name);
+    setlist(filteredList);
+  }
 
   return (
     <div className="App">
       <header className="App-header">
         <h2>Grocery List</h2>
         {list.map((v, k) => {
-          return <Item key={`${k}${v.name}${v.calories}`} item={v}></Item>;
+          return (
+            <Item
+              key={`${k}${v.name}${v.calories}`}
+              item={v}
+              onClick={removeItemHandler}
+            ></Item>
+          );
         })}
       </header>
     </div>
