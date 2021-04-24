@@ -21,6 +21,16 @@ function App() {
     setEditable(true);
   }
 
+  function keyPressHandler(e, i) {
+ if(e.key === "Enter"){
+   setEditable(!editable);
+   const copyList = [...list];
+   copyList[i].name = e.target.value
+
+
+ }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -33,6 +43,8 @@ function App() {
               onClick={removeItemHandler}
               editable={editable}
               onDoubleClick={makeditableHandler}
+              onKeyPress={keyPressHandler}
+              index={k}
             ></Item>
           );
         })}
